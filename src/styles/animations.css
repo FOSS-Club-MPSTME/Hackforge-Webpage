@@ -1,0 +1,62 @@
+@keyframes hero-left { from { opacity: 0; transform: translateX(-54px); } }
+@keyframes hero-right { from { opacity: 0; transform: translateX(54px); } }
+@keyframes hero-rise { from { opacity: 0; transform: translateY(42px); } }
+@keyframes clip-in { from { clip-path: inset(0 100% 0 0); opacity: 0; } }
+@keyframes pulse-route { to { offset-distance: 100%; } }
+
+.hero-kicker { animation: hero-rise .55s .05s both var(--mechanical-ease); }
+.hero h1 span:nth-child(1) { animation: hero-left .72s .17s both var(--mechanical-ease); }
+.hero h1 span:nth-child(2) { animation: hero-right .72s .28s both var(--mechanical-ease); }
+.hero h1 span:nth-child(3) { animation: hero-rise .68s .4s both var(--mechanical-ease); }
+.hero .issue-code, .hero-declaration { animation: hero-rise .55s .52s both var(--mechanical-ease); }
+.hero-register { animation: hero-rise .55s .6s both var(--mechanical-ease); }
+.poster-frame { animation: clip-in .78s .57s both var(--mechanical-ease); }
+
+.reveal { opacity: 0; transform: translateY(42px); transition: opacity .68s ease, transform .72s var(--mechanical-ease); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.editorial-label p { overflow: hidden; }
+.editorial-label p > span { display: block; transform: translateY(115%); transition: transform .58s .14s var(--mechanical-ease); }
+.editorial-label i { transform: scaleX(0); transform-origin: left; transition: transform .72s .24s var(--mechanical-ease); }
+.is-visible .editorial-label p > span { transform: translateY(0); }
+.is-visible .editorial-label i { transform: scaleX(1); }
+
+.event-pass { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); transition: clip-path .72s var(--mechanical-ease), box-shadow .3s .48s; }
+.is-visible .event-pass { clip-path: polygon(0 0, 97.7% 0, 100% 7%, 100% 100%, 2.3% 100%, 0 93%); }
+.pass-main > *, .pass-schedule > * { opacity: 0; transform: translateY(14px); transition: opacity .35s ease, transform .42s var(--mechanical-ease); }
+.is-visible .pass-main > *, .is-visible .pass-schedule > * { opacity: 1; transform: translateY(0); }
+.is-visible .pass-main > *:nth-child(1) { transition-delay: .25s; }
+.is-visible .pass-main > *:nth-child(2), .is-visible .pass-schedule > *:nth-child(1) { transition-delay: .36s; }
+.is-visible .pass-main > *:nth-child(4), .is-visible .pass-schedule > *:nth-child(2) { transition-delay: .47s; }
+.is-visible .barcode { transition-delay: .58s; }
+
+.timeline-step { opacity: 0; transform: translateY(30px); transition: opacity .5s ease, transform .62s var(--mechanical-ease); }
+.timeline.is-visible .timeline-step { opacity: 1; transform: translateY(0); }
+.timeline-step:nth-child(1) { transition-delay: .2s; }
+.timeline-step:nth-child(2) { transition-delay: .4s; }
+.timeline-step:nth-child(3) { transition-delay: .6s; }
+.timeline-step:nth-child(4) { transition-delay: .8s; }
+
+.section-title > span { display: block; transform: translateY(112%); transition: transform .72s var(--mechanical-ease); }
+.section-title > span:nth-child(2) { transition-delay: .08s; }
+.is-visible .section-title > span { transform: translateY(0); }
+
+.tracks-section .wire-building > *, .tracks-section .ground-plane, .tracks-section .signal-routes path,
+.tracks-section .surface-contours path, .tracks-section .surface-columns path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset .95s var(--mechanical-ease);
+}
+.tracks-section.is-visible .wire-building > *, .tracks-section.is-visible .ground-plane, .tracks-section.is-visible .signal-routes path,
+.tracks-section.is-visible .surface-contours path, .tracks-section.is-visible .surface-columns path { stroke-dashoffset: 0; }
+.tracks-section.is-visible .wire-building > * { transition-delay: calc(.18s + var(--path-index, 0) * .08s); }
+.tracks-section.is-visible .surface-contours path, .tracks-section.is-visible .surface-columns path { transition-delay: calc(.08s + var(--mesh-index, 0) * .018s); }
+.wire-nodes > g { opacity: 0; transform-box: fill-box; transform-origin: center; transform: scale(0); transition: opacity .25s, transform .35s var(--mechanical-ease); transition-delay: calc(.72s + var(--node-index) * .08s); }
+.tracks-section.is-visible .wire-nodes > g { opacity: 1; transform: scale(1); }
+.signal-pulse { offset-path: path('M97 117 L226 63 L360 110 L455 48'); offset-distance: 0; opacity: 0; }
+.track-panel.active .signal-pulse { opacity: 1; animation: pulse-route 2.1s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0ms !important; }
+  .reveal, .reveal *, .section-title > span, .wire-nodes > g { opacity: 1 !important; transform: none !important; }
+  .signal-pulse { display: none; }
+}

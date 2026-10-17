@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'Terminess';
+  src: url('/fonts/TerminessNerdFontMono-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --black: #0a0a0a;
+  --black-soft: #141414;
+  --white: #ffffff;
+  --off-white: #f2f3ef;
+  --foss-green: #33a852;
+  --foss-green-bright: #4ecb74;
+  --foss-green-dark: #277d40;
+  --grey: #9a9a95;
+  --muted: #696d69;
+  --border-light: rgba(255, 255, 255, .16);
+  --border-dark: rgba(0, 0, 0, .18);
+
+  --paper: var(--white);
+  --paper-alt: var(--off-white);
+  --ink: var(--black);
+  --ink-soft: var(--black-soft);
+  --green: var(--foss-green);
+  --green-light: var(--foss-green-bright);
+  --green-dark: var(--foss-green-dark);
+  --border: var(--border-dark);
+
+  --display: 'Tektur Variable', 'Arial Black', sans-serif;
+  --body: Inter, 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'Terminess', 'SFMono-Regular', Consolas, monospace;
+
+  --display-xl: clamp(5.3rem, 12vw, 12.8rem);
+  --display-lg: clamp(3.75rem, 8.5vw, 8.5rem);
+  --heading-md: clamp(3rem, 6.8vw, 7rem);
+  --track-title: clamp(2.9rem, 5.2vw, 5.7rem);
+  --text-lg: clamp(1rem, 1.35vw, 1.28rem);
+
+  --space-xs: .5rem;
+  --space-sm: 1rem;
+  --space-md: clamp(1.5rem, 3vw, 3rem);
+  --space-lg: clamp(3rem, 6vw, 6rem);
+  --space-xl: clamp(5.5rem, 10vw, 9rem);
+
+  --max: 1480px;
+  --gutter: clamp(1rem, 4vw, 4.5rem);
+  --mechanical-ease: cubic-bezier(.22, 1, .36, 1);
+}
